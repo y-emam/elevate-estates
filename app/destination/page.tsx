@@ -39,7 +39,6 @@ function Form() {
   const router = useRouter();
 
   const handleNavigation = (destination: string) => {
-    alert(destination);
     router.push(`/propertyType?destination=${destination}`);
   };
 
