@@ -1,5 +1,8 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const items = [
   {
@@ -33,6 +36,14 @@ const items = [
 ];
 
 function Form() {
+  const router = useRouter();
+  // const [destination, setdestination] = useState("");
+
+  const handleNavigation = (destination: string) => {
+    alert(destination);
+    router.push(`/propertyType?destination=${destination}`);
+  };
+
   return (
     <div className="bg-silver h-full">
       <Navbar />
@@ -43,8 +54,11 @@ function Form() {
         <div className="grid grid-cols-3 gap-4 p-16">
           {items.map((item) => (
             <div
-              className="bg-blue-200 p-4 cursor-pointer"
+              className="bg-white text-navy pb-4 cursor-pointer"
               key={item.title.toUpperCase()}
+              onClick={() => {
+                handleNavigation(item.title);
+              }}
             >
               <div className="relative w-full h-48">
                 <Image
