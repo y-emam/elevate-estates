@@ -45,8 +45,8 @@ function Form() {
   return (
     <div className="bg-silver h-full">
       <Navbar />
-      <div className="container pt-36 flex flex-col justify-center ">
-        <h1 className="w-full text-navy text-center text-xl font-bold ">
+      <div className="container pt-36 flex flex-col justify-center">
+        <h1 className="w-full text-navy text-center text-xl font-bold">
           Pick up your Destination
         </h1>
         <div className="grid grid-cols-3 gap-4 p-16">
