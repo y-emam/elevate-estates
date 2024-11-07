@@ -37,7 +37,6 @@ const items = [
 
 function Form() {
   const router = useRouter();
-  // const [destination, setdestination] = useState("");
 
   const handleNavigation = (destination: string) => {
     alert(destination);

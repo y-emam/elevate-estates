@@ -9,7 +9,11 @@ function Navbar() {
   const isHomePage = usePathname() === "/";
 
   return (
-    <nav className="z-50 relative bg-transparent p-10 pb-0 w-full h-0 pt-12">
+    <nav
+      className={`${
+        isHomePage ? "fixed" : "relative"
+      } z-50 bg-transparent p-10 pb-0 w-full h-0 pt-12`}
+    >
       {!isHomePage && (
         <button
           onClick={() => window.history.back()}
