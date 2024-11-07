@@ -11,6 +11,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        navy: '#001f3f',
+        silver: '#C0C0C0',
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'serif'],

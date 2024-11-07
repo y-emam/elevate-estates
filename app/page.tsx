@@ -2,31 +2,36 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
+import Navbar from "@/components/Navbar/index";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-const images = ["/img1.jpg", "/img2.jpg", "/img3.jpg"];
+const images = ["/home/img1.jpg", "/home/img2.jpg", "/home/img3.jpg"];
 
 export default function Home() {
+  const router = useRouter();
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
-  // Change image every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setFade(false); // Start fading out the current image
+      setFade(false);
       setTimeout(() => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setFade(true); // Fade in the next image
-      }, 500); // Wait 500ms for fade-out to complete before changing image
+        setFade(true);
+      }, 500);
     }, 5000);
 
-    // Cleanup the interval on component unmount
     return () => clearInterval(interval);
   }, []);
 
+  const navigateToForm = () => {
+    router.push("/destination");
+  };
+
   return (
-    <div className="">
+    <div className="w-full">
       <Navbar />
       <div className="flex justify-center items-center flex-col">
         <div className="relative w-full" style={{ height: "600px" }}>
@@ -45,11 +50,14 @@ export default function Home() {
             />
           </div>
 
-          <div className="text-start absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center flex-col">
-            <h2 className="text-white text-3xl font-semibold -translate-x-40 -translate-y-10">
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-start flex-col">
+            <h2 className="text-white text-3xl mx-32 font-semibold">
               Tailored Choices for Your Perfect Home
             </h2>
-            <button className="text-white px-6 py-3 -translate-x-40 -translate-y-10">
+            <button
+              onClick={navigateToForm}
+              className="text-silver border-silver border-2 my-3 mx-32 px-8 py-1 bg-transparent font-medium hover:text-white hover:border-white transition-all duration-100"
+            >
               START
             </button>
           </div>
