@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* styles/globals.css */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;700&display=swap");
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -13,9 +16,18 @@
     --foreground: #ededed;
   }
 }
+/* Heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif; /* Luxurious serif for headings */
+}
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", sans-serif;
 }

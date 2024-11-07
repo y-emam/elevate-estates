@@ -12,6 +12,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        serif: ['"Playfair Display"', 'serif'],
+        sans: ['Montserrat', 'sans-serif'],
+      },
     },
   },
   plugins: [],
