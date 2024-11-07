@@ -16,18 +16,3 @@
     --foreground: #ededed;
   }
 }
-/* Heading styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Playfair Display", serif; /* Luxurious serif for headings */
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: "Montserrat", sans-serif;
-}
