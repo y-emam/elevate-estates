@@ -1,30 +1,22 @@
-import mongoose from "mongoose";
+// lib/mongodb.ts
+import { MongoClient } from "mongodb";
 
-let isConnected = false;
+const client = new MongoClient(process.env.MONGODB_URI || "mongodb://localhost:27017");
 
-export const connectToDB = async () => {
-  mongoose.set("strictQuery", true);
+let clientPromise: Promise<MongoClient>;
 
-  if (isConnected) {
-    console.log("MongoDB is already connected");
+if (process.env.NODE_ENV === "development") {
+  // In development mode, use a global variable so the MongoClient isn't constantly recreated on hot reload
+  let globalClient: MongoClient | undefined = (global as any)._mongoClient;
 
-    return;
+  if (!globalClient) {
+    globalClient = client;
+    (global as any)._mongoClient = globalClient;
   }
 
-  try {
-    const mongoUri = process.env.MONGO_URI;
-    if (!mongoUri) {
-      throw new Error("MONGO_URI is not defined in the environment variables");
-    }
+  clientPromise = Promise.resolve(globalClient);
+} else {
+  clientPromise = client.connect();
+}
 
-    await mongoose.connect(mongoUri, {
-      dbName: "yasuo",
-    });
-
-    isConnected = true;
-
-    console.log("MongoDB is connected");
-  } catch (err) {
-    console.log(err);
-  }
-};
+export default clientPromise;
