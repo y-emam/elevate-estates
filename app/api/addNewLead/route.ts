@@ -1,52 +1,61 @@
-import { connectToDB } from "@/lib/mongodb";
-import Lead from "@/model/lead";
+import addToDB from "@/services/addToDB";
+import addToExcelSheet from "@/services/addToExcelSheet";
+import sendEmail from "@/services/sendEmail";
 import { NextRequest, NextResponse } from "next/server";
 
+interface lead {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  destination: string;
+  propertyType: string;
+  noBedrooms: number;
+  delivery: string;
+}
 export async function POST(req: NextRequest) {
   try {
-    // connect to DB
-    await connectToDB();
-
     // get request body data
-    const {
-      firstName,
-      lastName,
-      email,
-      phone,
-      destination,
-      propertyType,
-      noBedrooms,
-      delivery,
-    } = await req.json();
+    const lead: lead = await req.json();
 
-    // add item to DB
+    // add data to DB
+    let res = await addToDB(lead);
 
-    const lead = new Lead({
-      firstName,
-      lastName,
-      email,
-      phone,
-      destination,
-      propertyType,
-      noBedrooms,
-      delivery,
-    });
-
-    lead.save();
-
-    if (lead) {
-      // Return success response
-      return NextResponse.json({ message: "Added Lead successfully to DB." });
-    } else {
+    if (!res) {
       return NextResponse.json(
         { message: `Failed to add lead to DB` },
         { status: 500 }
       );
     }
+
+    // Send email
+    res = await sendEmail(lead);
+
+    if (!res) {
+      return NextResponse.json(
+        { message: `Failed to send email` },
+        { status: 500 }
+      );
+    }
+
+    // add new record to Excel sheet
+    res = await addToExcelSheet(lead);
+
+    if (!res) {
+      return NextResponse.json(
+        { message: `Failed to add lead to Excel sheet ${res}` },
+        { status: 500 }
+      );
+    }
+
+    // Return success response
+    return NextResponse.json({
+      message: "Added Lead successfully to the system.",
+    });
   } catch (err) {
     console.log(err);
     return NextResponse.json(
-      { message: `Failed to add lead to DB: ${err}` },
+      { message: `Failed to add lead to the system: ${err}` },
       { status: 500 }
     );
   }

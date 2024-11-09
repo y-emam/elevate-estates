@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const items = [
   { img_url: "/propertyType/ground-apartment.jpg", title: "Ground Apartment" },
@@ -38,9 +38,13 @@ const items = [
 
 function PropertyType() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const destination = searchParams.get("destination");
 
-  const handleNavigation = (destination: string) => {
-    router.push(`/form?destination=${destination}`);
+  const handleNavigation = (propertyType: string) => {
+    router.push(
+      `/propertyDetails?destination=${destination}&propertyType=${propertyType}`
+    );
   };
 
   return (

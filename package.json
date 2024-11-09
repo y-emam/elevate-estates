@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mui/material": "^6.1.6",
+    "@tippyjs/react": "^4.2.6",
     "dotenv": "^16.4.5",
     "google-auth-library": "^9.14.2",
     "googleapis": "^144.0.0",
@@ -20,7 +24,8 @@
     "next": "15.0.2",
     "nodemailer": "^6.9.16",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
     "@types/mongodb": "^4.0.7",

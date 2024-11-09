@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar/index";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import "./styles.css";
 
 const images = ["/home/img1.jpg", "/home/img2.jpg", "/home/img3.jpg"];
 
@@ -54,12 +55,34 @@ export default function Home() {
             <h2 className="text-white text-3xl mx-32 font-semibold">
               Tailored Choices for Your Perfect Home
             </h2>
-            <button
+            {/* <button
               onClick={navigateToForm}
               className="text-silver border-silver border-2 my-3 mx-32 px-8 py-1 bg-transparent font-medium hover:text-white hover:border-white transition-all duration-100"
             >
               START
-            </button>
+            </button> */}
+            <div className="container" onClick={navigateToForm}>
+              <div className="center">
+                <button className="btn">
+                  <svg
+                    width="180px"
+                    height="60px"
+                    viewBox="0 0 180 60"
+                    className="border"
+                  >
+                    <polyline
+                      points="179,1 179,59 1,59 1,1 179,1"
+                      className="bg-line"
+                    />
+                    <polyline
+                      points="179,1 179,59 1,59 1,1 179,1"
+                      className="hl-line"
+                    />
+                  </svg>
+                  <span>START</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
