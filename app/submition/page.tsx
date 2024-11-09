@@ -12,6 +12,10 @@ interface submitionData {
 }
 
 function Submitiotn() {
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility state
+
+  const whatsappNumber = process.env.WHATSAPP_NUMBER;
+
   const searchParams = useSearchParams();
   const destination = searchParams.get("destination");
   const propertyType = searchParams.get("propertyType");
@@ -63,17 +67,18 @@ function Submitiotn() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    // show loader
-
     // submit data to the server
-    await sendToServer();
-
-    // hide the loader
+    // await sendToServer();
 
     // show success message
-    // it will show that someone will contact you soon
-    // and show option to message throw whatsapp
+    setIsModalOpen(true);
   };
+
+  // Close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
       <Navbar />
@@ -135,6 +140,36 @@ function Submitiotn() {
             Submit
           </button>
         </form>
+
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm w-full">
+              <h2 className="text-xl font-semibold text-green-600">
+                Thank you for reaching out!
+              </h2>
+              <p className="mt-2 text-gray-700">
+                Someone will contact you soon. If you need immediate assistance,
+                feel free to reach us directly on WhatsApp.
+              </p>
+              <div>
+                <a
+                  href={`https://wa.me/${whatsappNumber}`} // Replace with your WhatsApp contact number
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600"
+                >
+                  WhatsApp
+                </a>
+                <button
+                  onClick={closeModal}
+                  className="mt-4 bg-gray-300 text-gray-800 py-2 px-6 rounded-md hover:bg-gray-400"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
