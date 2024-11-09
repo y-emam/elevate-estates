@@ -2,8 +2,8 @@ import { OAuth2Client } from "google-auth-library";
 import nodemailer from "nodemailer";
 
 interface leadInterface {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phone: string;
   destination: string;
@@ -57,8 +57,8 @@ export default async function sendEmail(leadInp: leadInterface) {
       to: emailReceiver,
       subject: "A new user applied throw the website.",
       text: `A new user applied throw the website, his data is :
-            First Name: ${leadInp.firstName}
-            Last Name: ${leadInp.lastName}
+            First Name: ${leadInp.firstname}
+            Last Name: ${leadInp.lastname}
             Email: ${leadInp.email}
             Phone: ${leadInp.phone}`,
     });

@@ -1,8 +1,8 @@
 import { google } from "googleapis";
 
 interface leadInterface {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phone: string;
   destination: string;
@@ -47,8 +47,8 @@ export default async function addToExcelSheet(leadInp: leadInterface) {
         values: [
           [
             createAt,
-            leadInp.firstName,
-            leadInp.lastName,
+            leadInp.firstname,
+            leadInp.lastname,
             leadInp.email,
             leadInp.phone,
             leadInp.destination,

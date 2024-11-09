@@ -4,8 +4,8 @@ import sendEmail from "@/services/sendEmail";
 import { NextRequest, NextResponse } from "next/server";
 
 interface lead {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phone: string;
   destination: string;
@@ -19,34 +19,34 @@ export async function POST(req: NextRequest) {
     const lead: lead = await req.json();
 
     // add data to DB
-    let res = await addToDB(lead);
-
-    if (!res) {
-      return NextResponse.json(
-        { message: `Failed to add lead to DB` },
-        { status: 500 }
-      );
-    }
+    addToDB(lead).then((res) => {
+      if (!res) {
+        return NextResponse.json(
+          { message: `Failed to send email` },
+          { status: 500 }
+        );
+      }
+    });
 
     // Send email
-    res = await sendEmail(lead);
-
-    if (!res) {
-      return NextResponse.json(
-        { message: `Failed to send email` },
-        { status: 500 }
-      );
-    }
+    sendEmail(lead).then((res) => {
+      if (!res) {
+        return NextResponse.json(
+          { message: `Failed to send email` },
+          { status: 500 }
+        );
+      }
+    });
 
     // add new record to Excel sheet
-    res = await addToExcelSheet(lead);
-
-    if (!res) {
-      return NextResponse.json(
-        { message: `Failed to add lead to Excel sheet ${res}` },
-        { status: 500 }
-      );
-    }
+    addToExcelSheet(lead).then((res) => {
+      if (!res) {
+        return NextResponse.json(
+          { message: `Failed to send email` },
+          { status: 500 }
+        );
+      }
+    });
 
     // Return success response
     return NextResponse.json({

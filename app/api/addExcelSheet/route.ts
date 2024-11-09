@@ -4,8 +4,8 @@ import { google } from "googleapis";
 export async function POST(req: NextRequest) {
   try {
     const {
-      firstName,
-      lastName,
+      firstname,
+      lastname,
       email,
       phone,
       destination,
@@ -48,8 +48,8 @@ export async function POST(req: NextRequest) {
         values: [
           [
             createAt,
-            firstName,
-            lastName,
+            firstname,
+            lastname,
             email,
             phone,
             destination,

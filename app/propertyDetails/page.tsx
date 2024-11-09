@@ -36,7 +36,7 @@ function PropertyDetails() {
 
     // show window
     router.push(
-      `/submittion?destination=${destination}&propertyType=${propertyType}&noBedrooms=${propertyDetailsData.noBedrooms}&delivery=${propertyDetailsData.delivery}`
+      `/submition?destination=${destination}&propertyType=${propertyType}&noBedrooms=${propertyDetailsData.noBedrooms}&delivery=${propertyDetailsData.delivery}`
     );
   };
 

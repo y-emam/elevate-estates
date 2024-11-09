@@ -2,8 +2,8 @@ import { connectToDB } from "@/lib/mongodb";
 import Lead from "@/model/lead";
 
 interface leadInterface {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phone: string;
   destination: string;

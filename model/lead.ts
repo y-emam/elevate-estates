@@ -1,11 +1,11 @@
 import { Schema, model, models } from "mongoose";
 
 const LeadSchema = new Schema({
-  firstName: {
+  firstname: {
     type: String,
     required: [true, "First name is required!"],
   },
-  lastName: {
+  lastname: {
     type: String,
     required: [true, "Last name is required!"],
   },

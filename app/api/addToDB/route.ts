@@ -9,8 +9,8 @@ export async function POST(req: NextRequest) {
 
     // get request body data
     const {
-      firstName,
-      lastName,
+      firstname,
+      lastname,
       email,
       phone,
       destination,
@@ -22,8 +22,8 @@ export async function POST(req: NextRequest) {
     // add item to DB
 
     const lead = new Lead({
-      firstName,
-      lastName,
+      firstname,
+      lastname,
       email,
       phone,
       destination,
