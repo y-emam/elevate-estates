@@ -61,7 +61,7 @@ export default function Home() {
           </div>
 
           <div className="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-start flex-col">
-            <h2 className="text-white text-3xl mx-32 font-semibold">
+            <h2 className="text-white text-3xl mx-32 opacity-0 font-semibold animate-fade-in">
               {images[currentImageIndex].image_title}
             </h2>
             <a className="animated-btn" href={"/destination"}>
