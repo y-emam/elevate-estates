@@ -19,7 +19,7 @@ const config: Config = {
         sans: ["Montserrat", "sans-serif"],
       },
       animation: {
-        rotate: "rotate 400s linear infinite",
+        rotate: "rotate 250s linear infinite",
       },
       keyframes: {
         rotate: {
