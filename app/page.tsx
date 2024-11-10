@@ -10,18 +10,19 @@ import Footer from "@/components/Footer";
 const images = [
   {
     image_url: "/home/img1.jpg",
-    image_alt: "Slideshow Image 1",
-    image_title: "Slideshow Image 1",
+    image_alt: "Eleven Estates img 1",
+    image_title: "Relax and Unwind in Our Exclusive Beachfront Compound",
   },
   {
     image_url: "/home/img2.jpg",
-    image_alt: "Slideshow Image 2",
-    image_title: "Slideshow Image 2",
+    image_alt: "Eleven Estates img 2",
+    image_title:
+      "Strategic Location, Modern Amenities – Perfect for Your Business Growth",
   },
   {
     image_url: "/home/img3.jpg",
-    image_alt: "Slideshow Image 3",
-    image_title: "Slideshow Image 3",
+    image_alt: "Eleven Estates img 3",
+    image_title: "Live the Dream: A Beautiful Beachfront Compound Awaits You",
   },
 ];
 
@@ -42,12 +43,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full min-h-s">
+    <div className="w-full min-h-screen overflow-x-hidden">
       <Navbar />
-      <div className="flex justify-center items-center flex-col">
+      <div className="flex w-full justify-center items-center flex-col">
         <div className="relative w-full" style={{ height: "600px" }}>
           <div
-            className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ${
+            className={`absolute w-full inset-0 overflow-hidden transition-opacity duration-1000 ${
               fade ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -61,7 +62,12 @@ export default function Home() {
           </div>
 
           <div className="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-start flex-col">
-            <h2 className="text-white text-3xl mx-32 opacity-0 font-semibold animate-fade-in">
+            <div className="text-white w-full sm:w-1/2 text-left pl-8 sm:pl-32 -translate-y-20">
+              <h1 className="text-3xl sm:text-5xl font-bold">
+                Tailored Choices for Your Perfect Home
+              </h1>
+            </div>
+            <h2 className="text-white text-xl sm:text-2xl pl-8 sm:pl-32 opacity-0 animate-fade-in -translate-y-10">
               {images[currentImageIndex].image_title}
             </h2>
             <a className="animated-btn" href={"/destination"}>
