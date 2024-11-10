@@ -7,7 +7,6 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import "tippy.js/dist/tippy.css";
 import Footer from "@/components/Footer";
 import Tooltip from "@/components/Tooltip";
-import RotatingCircles from "@/components/RotatingCircles";
 import "./styles.css";
 
 interface propertyDetailsData {
@@ -120,7 +119,7 @@ function PropertyDetails() {
       </div>
       <Footer />
 
-      <RotatingCircles />
+      {/* <RotatingCircles /> */}
     </div>
   );
 }

@@ -2,7 +2,6 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import RotatingCircles from "@/components/RotatingCircles";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -78,10 +77,10 @@ function PropertyType() {
             </div>
           ))}
         </div>
-
-        <RotatingCircles />
       </div>
       <Footer />
+
+      {/* <RotatingCircles /> */}
     </div>
   );
 }

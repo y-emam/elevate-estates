@@ -2,7 +2,6 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import RotatingCircles from "@/components/RotatingCircles";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -75,8 +74,6 @@ function Form() {
         </div>
       </div>
       <Footer />
-
-      <RotatingCircles />
     </div>
   );
 }
