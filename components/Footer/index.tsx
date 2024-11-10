@@ -10,10 +10,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white py-8">
       <div className="container mx-auto text-center">
-        {/* Logo */}
         <h1 className="text-2xl font-bold mb-4">Elevate Estates</h1>
 
-        {/* Social Media Icons */}
         <div className="flex justify-center space-x-6 mb-4">
           <a
             href="#"
@@ -38,7 +36,6 @@ const Footer: React.FC = () => {
           </a>
         </div>
 
-        {/* Copyright */}
         <p className="text-sm text-gray-400">
           © {new Date().getFullYear()} Elevate Estates. All rights reserved.
         </p>
