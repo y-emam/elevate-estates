@@ -46,10 +46,10 @@ function PropertyDetails() {
   return (
     <div className="bg-gradient-to-r from-slate-100 via-white to-slate-100 h-full relative overflow-x-hidden">
       <Navbar />
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8">
         <div className="bg-white p-6 shadow-lg w-full max-w-md z-20">
           <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-            Property Search Form
+            Pick options that suits you
           </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
@@ -64,7 +64,7 @@ function PropertyDetails() {
                 value={propertyDetailsData.noBedrooms}
                 onChange={handleChange}
                 required
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                className="w-full p-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-navy cursor-pointer"
               >
                 <option value="">Select an option</option>
                 <option value="1">1 Bedroom</option>
@@ -81,7 +81,7 @@ function PropertyDetails() {
                 value={propertyDetailsData.delivery}
                 onChange={handleChange}
                 required
-                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                className="w-full p-3 border text-black border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-navy cursor-pointer"
               >
                 <option value="">Select an option</option>
                 <option value="Ready to move">Ready to Move</option>
@@ -90,7 +90,10 @@ function PropertyDetails() {
               </select>
             </div>
 
-            <a className="animated-btn" href={"/destination"}>
+            <a
+              className="animated-btn"
+              href={`/submition?destination=${destination}&propertyType=${propertyType}&noBedrooms=${propertyDetailsData.noBedrooms}&delivery=${propertyDetailsData.delivery}`}
+            >
               <div className="center">
                 <button className="btn">
                   <svg
@@ -112,13 +115,6 @@ function PropertyDetails() {
                 </button>
               </div>
             </a>
-
-            {/* <button
-              type="submit"
-              className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 cursor-pointer"
-            >
-              Next
-            </button> */}
           </form>
         </div>
       </div>
