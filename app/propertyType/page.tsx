@@ -52,7 +52,7 @@ function PropertyType() {
   return (
     <div className="bg-gradient-to-r from-slate-100 via-white to-slate-50 h-full relative">
       <Navbar />
-      <div className="pt-36 flex flex-col justify-center">
+      <div className=" z-10 pt-36 flex flex-col justify-center">
         <h1 className="w-full text-black text-center text-xl font-bold">
           Pick up your Property Type
         </h1>
@@ -78,10 +78,10 @@ function PropertyType() {
             </div>
           ))}
         </div>
+
+        <RotatingCircles />
       </div>
       <Footer />
-
-      <RotatingCircles />
     </div>
   );
 }

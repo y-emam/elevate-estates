@@ -85,9 +85,9 @@ function Submitiotn() {
   return (
     <div className="bg-gradient-to-r from-slate-100 via-white to-slate-100 h-full relative overflow-x-hidden">
       <Navbar />
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="bg-white p-6 m-16 shadow-lg w-full max-w-md z-20">
-          <h1 className="text-3xl font-bold text-gray-800 mb-6 m-auto">
+      <div className="flex justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8">
+        <div className="bg-white p-6 m-6 sm:m-16 shadow-lg w-full max-w-md z-20">
+          <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
             Final Steps
           </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -116,8 +116,8 @@ function Submitiotn() {
                 className="w-full p-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-navy"
               />
             </div>
+
             <div className="space-y-2">
-              <label className="text-gray-700 font-medium">Email</label>
               <label className="text-gray-700 font-medium">Email</label>
               <input
                 type="email"
@@ -128,6 +128,7 @@ function Submitiotn() {
                 className="w-full p-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-navy"
               />
             </div>
+
             <div className="space-y-2">
               <label className="text-gray-700 font-medium">Phone Number</label>
               <input
