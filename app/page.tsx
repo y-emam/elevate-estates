@@ -45,10 +45,13 @@ export default function Home() {
   return (
     <div className="w-full min-h-screen overflow-x-hidden">
       <Navbar />
-      <div className="flex w-full justify-center items-center flex-col">
-        <div className="relative w-full" style={{ height: "600px" }}>
+      <div className="flex w-full min-h-screen justify-center items-center flex-col">
+        <div
+          className="relative w-full min-h-screen"
+          style={{ height: "600px" }}
+        >
           <div
-            className={`absolute w-full inset-0 overflow-hidden transition-opacity duration-1000 ${
+            className={`absolute min-h-screen w-full inset-0 overflow-hidden transition-opacity duration-1000 ${
               fade ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -57,7 +60,7 @@ export default function Home() {
               alt={images[currentImageIndex].image_alt}
               layout="fill"
               objectFit="cover"
-              className="w-full h-full animate-zoom-in"
+              className="w-full absolute top-0 animate-zoom-in min-h-screen "
             />
           </div>
 
