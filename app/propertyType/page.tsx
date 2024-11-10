@@ -51,9 +51,9 @@ function PropertyType() {
   return (
     <div className="bg-gradient-to-r from-slate-100 via-white to-slate-50 h-full relative">
       <Navbar />
-      <div className="container pt-36 flex flex-col justify-center">
+      <div className="pt-36 flex flex-col justify-center">
         <h1 className="w-full text-black text-center text-xl font-bold">
-          Pick up your Destination
+          Pick up your Property Type
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4 sm:p-8 md:p-16">
           {items.map((item) => (

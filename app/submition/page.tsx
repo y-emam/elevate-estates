@@ -69,7 +69,7 @@ function Submitiotn() {
     e.preventDefault();
 
     // submit data to the server
-    // await sendToServer();
+    await sendToServer();
 
     // show success message
     setIsModalOpen(true);

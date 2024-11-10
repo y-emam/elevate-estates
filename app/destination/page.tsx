@@ -46,7 +46,7 @@ function Form() {
   return (
     <div className="bg-gradient-to-r from-slate-100 via-white to-slate-50 h-full relative">
       <Navbar />
-      <div className="container pt-36 flex flex-col justify-center">
+      <div className="pt-36 flex flex-col justify-center">
         <h1 className="w-full text-black text-center text-xl font-bold">
           Pick up your Destination
         </h1>
