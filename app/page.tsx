@@ -35,7 +35,7 @@ export default function Home() {
       setTimeout(() => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
         setFade(true);
-      }, 500);
+      }, 600);
     }, 5000);
 
     return () => clearInterval(interval);
@@ -47,7 +47,7 @@ export default function Home() {
       <div className="flex justify-center items-center flex-col">
         <div className="relative w-full" style={{ height: "600px" }}>
           <div
-            className={`absolute inset-0 transition-opacity duration-1000 ${
+            className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ${
               fade ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -56,13 +56,13 @@ export default function Home() {
               alt={images[currentImageIndex].image_alt}
               layout="fill"
               objectFit="cover"
-              className="w-full h-full"
+              className="w-full h-full animate-zoom-in"
             />
           </div>
 
           <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-start flex-col">
             <h2 className="text-white text-3xl mx-32 font-semibold">
-              Tailored Choices for Your Perfect Home
+              {images[currentImageIndex].image_title}
             </h2>
             <a className="animated-btn" href={"/destination"}>
               <div className="center">

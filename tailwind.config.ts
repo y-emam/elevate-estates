@@ -20,11 +20,16 @@ const config: Config = {
       },
       animation: {
         rotate: "rotate 250s linear infinite",
+        "zoom-in": "zoomIn 5s ease-in-out 1.5s infinite",
       },
       keyframes: {
         rotate: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
+        },
+        zoomIn: {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.2)" },
         },
       },
     },
