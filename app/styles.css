@@ -1,22 +1,21 @@
-.container {
+.animated-btn {
   width: 400px;
   height: 400px;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(1rem, 5rem);
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
 }
 
-.center {
+.animated-btn .center {
   width: 180px;
   height: 60px;
   position: absolute;
 }
 
-.btn {
+.animated-btn .btn {
   width: 180px;
   height: 60px;
   cursor: pointer;
@@ -25,9 +24,10 @@
   outline: none;
   transition: 1s ease-in-out;
   color: #fff;
+  font-weight: bold;
 }
 
-svg {
+.animated-btn svg {
   position: absolute;
   left: 0;
   top: 0;
@@ -38,12 +38,12 @@ svg {
   transition: 1s ease-in-out;
 }
 
-.btn:hover {
+.animated-btn .btn:hover {
   transition: 1s ease-in-out;
   background: #fff;
   color: #000;
 }
 
-.btn:hover svg {
+.animated-btn .btn:hover svg {
   stroke-dashoffset: -480;
 }

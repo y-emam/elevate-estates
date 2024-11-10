@@ -4,14 +4,28 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar/index";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import "./styles.css";
+import Footer from "@/components/Footer";
 
-const images = ["/home/img1.jpg", "/home/img2.jpg", "/home/img3.jpg"];
+const images = [
+  {
+    image_url: "/home/img1.jpg",
+    image_alt: "Slideshow Image 1",
+    image_title: "Slideshow Image 1",
+  },
+  {
+    image_url: "/home/img2.jpg",
+    image_alt: "Slideshow Image 2",
+    image_title: "Slideshow Image 2",
+  },
+  {
+    image_url: "/home/img3.jpg",
+    image_alt: "Slideshow Image 3",
+    image_title: "Slideshow Image 3",
+  },
+];
 
 export default function Home() {
-  const router = useRouter();
-
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
@@ -27,12 +41,8 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const navigateToForm = () => {
-    router.push("/destination");
-  };
-
   return (
-    <div className="w-full">
+    <div className="w-full min-h-s">
       <Navbar />
       <div className="flex justify-center items-center flex-col">
         <div className="relative w-full" style={{ height: "600px" }}>
@@ -42,8 +52,8 @@ export default function Home() {
             }`}
           >
             <Image
-              src={images[currentImageIndex]}
-              alt="Slideshow Image"
+              src={images[currentImageIndex].image_url}
+              alt={images[currentImageIndex].image_alt}
               layout="fill"
               objectFit="cover"
               className="w-full h-full"
@@ -54,7 +64,7 @@ export default function Home() {
             <h2 className="text-white text-3xl mx-32 font-semibold">
               Tailored Choices for Your Perfect Home
             </h2>
-            <div className="container" onClick={navigateToForm}>
+            <a className="animated-btn" href={"/destination"}>
               <div className="center">
                 <button className="btn">
                   <svg
@@ -75,11 +85,11 @@ export default function Home() {
                   <span>START</span>
                 </button>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
