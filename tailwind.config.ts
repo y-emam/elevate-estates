@@ -26,8 +26,10 @@ const config: Config = {
       animation: {
         rotate: "rotate 250s linear infinite",
         "zoom-in": "zoomIn 5s ease-in-out 1.4s infinite",
-        "slide-in-right": "slide-in-right 0.5s ease-out forwards",
         "fade-in": "fadeIn 5s ease-in forwards 1.4s infinite",
+        "gradient-move": "gradient-move 8s ease infinite",
+        "gradient-pulse": "gradient-pulse 5s ease-in-out infinite",
+        "gradient-color-shift": "gradient-color-shift 6s ease infinite",
       },
       keyframes: {
         rotate: {
@@ -47,6 +49,9 @@ const config: Config = {
           "20%": { opacity: "1" },
           "100%": { opacity: "1" },
         },
+      },
+      backgroundSize: {
+        "200%": "200%",
       },
     },
   },

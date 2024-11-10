@@ -4,11 +4,11 @@
 import Navbar from "@/components/Navbar";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
-// import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import Footer from "@/components/Footer";
 import Tooltip from "@/components/Tooltip";
 import RotatingCircles from "@/components/RotatingCircles";
+import "./styles.css";
 
 interface propertyDetailsData {
   noBedrooms: string;
@@ -47,7 +47,7 @@ function PropertyDetails() {
     <div className="bg-gradient-to-r from-slate-100 via-white to-slate-100 h-full relative overflow-x-hidden">
       <Navbar />
       <div className="flex justify-center items-center min-h-screen">
-        <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md z-20">
+        <div className="bg-white p-6 shadow-lg w-full max-w-md z-20">
           <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
             Property Search Form
           </h1>
@@ -90,12 +90,35 @@ function PropertyDetails() {
               </select>
             </div>
 
-            <button
+            <a className="animated-btn" href={"/destination"}>
+              <div className="center">
+                <button className="btn">
+                  <svg
+                    width="120px"
+                    height="40px"
+                    viewBox="0 0 180 60"
+                    className="border"
+                  >
+                    <polyline
+                      points="179,1 179,59 1,59 1,1 179,1"
+                      className="bg-line"
+                    />
+                    <polyline
+                      points="179,1 179,59 1,59 1,1 179,1"
+                      className="hl-line"
+                    />
+                  </svg>
+                  <span>Next</span>
+                </button>
+              </div>
+            </a>
+
+            {/* <button
               type="submit"
               className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 cursor-pointer"
             >
               Next
-            </button>
+            </button> */}
           </form>
         </div>
       </div>

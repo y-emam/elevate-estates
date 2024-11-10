@@ -1,0 +1,47 @@
+.animated-btn {
+  /* margin: 1rem 2rem; */
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.animated-btn .center {
+  width: 120px;
+  height: 40px;
+  position: absolute;
+}
+
+.animated-btn .btn {
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  background: black;
+  border: 1px solid white;
+  outline: none;
+  transition: 1s ease-in-out;
+  color: white;
+  font-weight: bold;
+}
+
+.animated-btn svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.animated-btn .btn:hover {
+  transition: 1s ease-in-out;
+  background: #fff;
+  color: #000;
+}
+
+.animated-btn .btn:hover svg {
+  stroke-dashoffset: -480;
+}
