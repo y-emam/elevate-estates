@@ -60,7 +60,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-start flex-col">
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex justify-center items-start flex-col">
             <h2 className="text-white text-3xl mx-32 font-semibold">
               {images[currentImageIndex].image_title}
             </h2>

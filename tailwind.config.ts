@@ -20,7 +20,7 @@ const config: Config = {
       },
       animation: {
         rotate: "rotate 250s linear infinite",
-        "zoom-in": "zoomIn 5s ease-in-out 1.5s infinite",
+        "zoom-in": "zoomIn 5s ease-in-out 1.4s infinite",
       },
       keyframes: {
         rotate: {
@@ -29,7 +29,7 @@ const config: Config = {
         },
         zoomIn: {
           "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(1.2)" },
+          "100%": { transform: "scale(1.1)" },
         },
       },
     },
