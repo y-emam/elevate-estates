@@ -11,12 +11,21 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        navy: '#001f3f',
-        silver: '#C0C0C0',
+        navy: "#000080",
+        silver: "#C0C0C0",
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
-        sans: ['Montserrat', 'sans-serif'],
+        serif: ['"Playfair Display"', "serif"],
+        sans: ["Montserrat", "sans-serif"],
+      },
+      animation: {
+        rotate: "rotate 400s linear infinite",
+      },
+      keyframes: {
+        rotate: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
     },
   },

@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -171,6 +172,7 @@ function Submitiotn() {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

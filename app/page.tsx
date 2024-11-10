@@ -36,7 +36,6 @@ export default function Home() {
       <Navbar />
       <div className="flex justify-center items-center flex-col">
         <div className="relative w-full" style={{ height: "600px" }}>
-          {/* Image with smooth fade transition */}
           <div
             className={`absolute inset-0 transition-opacity duration-1000 ${
               fade ? "opacity-100" : "opacity-0"
@@ -55,12 +54,6 @@ export default function Home() {
             <h2 className="text-white text-3xl mx-32 font-semibold">
               Tailored Choices for Your Perfect Home
             </h2>
-            {/* <button
-              onClick={navigateToForm}
-              className="text-silver border-silver border-2 my-3 mx-32 px-8 py-1 bg-transparent font-medium hover:text-white hover:border-white transition-all duration-100"
-            >
-              START
-            </button> */}
             <div className="container" onClick={navigateToForm}>
               <div className="center">
                 <button className="btn">
@@ -86,6 +79,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 }

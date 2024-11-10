@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -48,22 +49,22 @@ function PropertyType() {
   };
 
   return (
-    <div className="bg-silver h-full">
+    <div className="bg-white h-full">
       <Navbar />
       <div className="container pt-36 flex flex-col justify-center">
-        <h1 className="w-full text-navy text-center text-xl font-bold ">
+        <h1 className="w-full text-black text-center text-xl font-bold md:text-2xl">
           Choose your Property Type
         </h1>
-        <div className="grid grid-cols-3 gap-4 p-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 sm:p-8 md:p-16">
           {items.map((item) => (
             <div
-              className="bg-white text-navy pb-4 cursor-pointer"
+              className="bg-white text-color pb-4 cursor-pointer shadow-lg"
               key={item.title.toUpperCase()}
               onClick={() => {
                 handleNavigation(item.title);
               }}
             >
-              <div className="relative w-full h-48">
+              <div className="relative w-full h-48 sm:h-56 md:h-64">
                 <Image
                   src={item.img_url}
                   alt={item.title}
@@ -78,6 +79,10 @@ function PropertyType() {
           ))}
         </div>
       </div>
+      <Footer />
+
+      <div className="absolute z-0 top-4 left-4 w-96 h-96 border-2 border-dashed border-blue-100 rounded-full animate-rotate" />
+      <div className="absolute bottom-12 right-12 w-64 h-64 border-2 border-black-100 border-dashed rounded-full animate-rotate" />
     </div>
   );
 }

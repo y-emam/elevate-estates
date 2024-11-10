@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import Footer from "@/components/Footer";
 
 interface propertyDetailsData {
   noBedrooms: string;
@@ -94,6 +95,10 @@ function PropertyDetails() {
           </button>
         </form>
       </div>
+      <Footer />
+
+      <div className="absolute z-0 top-4 left-4 w-96 h-96 border-2 border-dashed border-blue-100 rounded-full animate-rotate" />
+      <div className="absolute bottom-8 right-12 w-64 h-64 border-2 border-black-100 border-dashed rounded-full animate-rotate" />
     </div>
   );
 }
