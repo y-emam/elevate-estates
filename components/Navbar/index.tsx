@@ -16,7 +16,7 @@ function Navbar() {
     <nav
       className={`${
         isHomePage ? "fixed" : "relative"
-      } z-50 bg-transparent p-10 pb-0 w-full h-0 pt-12`}
+      } z-50 p-10 pb-0 w-full h-0 pt-12 bg-transparent`}
     >
       <div className="flex items-center justify-between w-full">
         {!isHomePage && (
@@ -37,7 +37,7 @@ function Navbar() {
           } text-2xl sm:text-4xl font-bold h-0 flex justify-center items-center cursor-pointer mx-auto`}
           onClick={handleNavigation}
         >
-          ELEVATE ESTATES
+          Elevate Estates
         </h1>
       </div>
     </nav>

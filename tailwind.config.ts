@@ -13,6 +13,11 @@ const config: Config = {
         foreground: "var(--foreground)",
         navy: "#000080",
         silver: "#C0C0C0",
+        "custom-light": "#f8f9fa",
+        "custom-dark": "#e9ecef",
+      },
+      backgroundImage: {
+        "custom-gradient": "linear-gradient(to right, #f8f9fa, #e9ecef)",
       },
       fontFamily: {
         serif: ['"Playfair Display"', "serif"],

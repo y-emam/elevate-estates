@@ -4,9 +4,11 @@
 import Navbar from "@/components/Navbar";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
-import Tippy from "@tippyjs/react";
+// import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import Footer from "@/components/Footer";
+import Tooltip from "@/components/Tooltip";
+import RotatingCircles from "@/components/RotatingCircles";
 
 interface propertyDetailsData {
   noBedrooms: string;
@@ -42,63 +44,64 @@ function PropertyDetails() {
   };
 
   return (
-    <div>
+    <div className="bg-gradient-to-r from-slate-100 via-white to-slate-100 h-full relative overflow-x-hidden">
       <Navbar />
-      <div className="container mx-auto p-6">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">
-          Property Search Form
-        </h1>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-2 relative">
-            <label className="text-gray-700 font-medium flex items-center">
-              Number of Bedrooms
-              <Tippy content="Excludes extra spaces like the nanny's room, driver’s quarters, laundry area, and study.">
-                <span className="ml-1 cursor-pointer">?</span>
-              </Tippy>
-            </label>
-            <select
-              name="noBedrooms"
-              value={propertyDetailsData.noBedrooms}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">Select an option</option>
-              <option value="1">1 Bedroom</option>
-              <option value="2">2 Bedrooms</option>
-              <option value="3">3 Bedrooms</option>
-              <option value="4">4 Bedrooms</option>
-            </select>
-          </div>
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md z-20">
+          <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+            Property Search Form
+          </h1>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-gray-700 font-medium flex items-center">
+                Number of Bedrooms
+                <Tooltip content="Excludes extra rooms like the nanny's room, driver’s quarters, laundry area, and study.">
+                  <span className="ml-1 cursor-pointer">?</span>
+                </Tooltip>
+              </label>
+              <select
+                name="noBedrooms"
+                value={propertyDetailsData.noBedrooms}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+              >
+                <option value="">Select an option</option>
+                <option value="1">1 Bedroom</option>
+                <option value="2">2 Bedrooms</option>
+                <option value="3">3 Bedrooms</option>
+                <option value="4">4 Bedrooms</option>
+              </select>
+            </div>
 
-          <div className="space-y-2">
-            <label className="text-gray-700 font-medium">Delivery</label>
-            <select
-              name="delivery"
-              value={propertyDetailsData.delivery}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">Select an option</option>
-              <option value="Ready to move">Ready to Move</option>
-              <option value="Near Delivery">Near Delivery</option>
-              <option value="Off Plan">Off Plan</option>
-            </select>
-          </div>
+            <div className="space-y-2">
+              <label className="text-gray-700 font-medium">Delivery</label>
+              <select
+                name="delivery"
+                value={propertyDetailsData.delivery}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+              >
+                <option value="">Select an option</option>
+                <option value="Ready to move">Ready to Move</option>
+                <option value="Near Delivery">Near Delivery</option>
+                <option value="Off Plan">Off Plan</option>
+              </select>
+            </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
-          >
-            Next
-          </button>
-        </form>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 cursor-pointer"
+            >
+              Next
+            </button>
+          </form>
+        </div>
       </div>
       <Footer />
 
-      <div className="absolute z-0 top-4 left-4 w-96 h-96 border-2 border-dashed border-blue-100 rounded-full animate-rotate" />
-      <div className="absolute bottom-8 right-12 w-64 h-64 border-2 border-black-100 border-dashed rounded-full animate-rotate" />
+      <RotatingCircles />
     </div>
   );
 }

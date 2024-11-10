@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import RotatingCircles from "@/components/RotatingCircles";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -44,7 +45,7 @@ function Form() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-slate-100 via-white to-slate-50 h-full relative">
+    <div className="bg-gradient-to-r from-slate-100 via-white to-slate-50 h-full relative overflow-x-hidden">
       <Navbar />
       <div className="pt-36 flex flex-col justify-center">
         <h1 className="w-full text-black text-center text-xl font-bold">
@@ -75,8 +76,7 @@ function Form() {
       </div>
       <Footer />
 
-      <div className="absolute z-0 top-4 left-4 w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 border-2 border-dashed border-blue-100 rounded-full animate-rotate" />
-      <div className="absolute bottom-8 right-12 w-48 sm:w-64 md:w-80 h-48 sm:h-64 md:h-80 border-2 border-black-100 border-dashed rounded-full animate-rotate" />
+      <RotatingCircles />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import RotatingCircles from "@/components/RotatingCircles";
 import { useSearchParams } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
 
@@ -173,6 +174,8 @@ function Submitiotn() {
         )}
       </div>
       <Footer />
+
+      <RotatingCircles />
     </div>
   );
 }
