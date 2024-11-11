@@ -52,10 +52,12 @@ function PropertyDetails() {
           </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-gray-700 font-medium flex items-center">
-                Number of Bedrooms
+              <label className="text-gray-700 font-medium flex items-center justify-between">
+                <span>Number of Bedrooms</span>
                 <Tooltip content="Excludes extra rooms like the nanny's room, driver’s quarters, laundry area, and study.">
-                  <span className="ml-1 cursor-pointer">?</span>
+                  <span className="ml-1 cursor-pointer text-white text-xl bg-black rounded-full px-3 py-1">
+                    !
+                  </span>
                 </Tooltip>
               </label>
               <select

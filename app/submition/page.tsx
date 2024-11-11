@@ -88,7 +88,7 @@ function Submitiotn() {
       <div className="flex justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8">
         <div className="bg-white p-6 m-6 sm:m-16 shadow-lg w-full max-w-md z-20">
           <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-            Final Steps
+            Sign Up
           </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
