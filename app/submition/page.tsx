@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import Footer from "@/components/Footer";
@@ -16,8 +17,6 @@ interface submitionData {
 function Submitiotn() {
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility state
 
-  const whatsappNumber = process.env.WHATSAPP_NUMBER;
-
   const searchParams = useSearchParams();
   const destination = searchParams.get("destination");
   const propertyType = searchParams.get("propertyType");
@@ -30,6 +29,8 @@ function Submitiotn() {
     email: "",
     phone: "",
   });
+
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setsubmitionData({
@@ -164,35 +165,44 @@ function Submitiotn() {
             </a>
           </form>
 
-          {isModalOpen && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-              <div className="bg-white p-6 shadow-lg text-center max-w-sm w-full">
-                <h2 className="text-xl font-semibold text-green-600">
-                  Thank you for reaching out!
-                </h2>
-                <p className="mt-2 text-gray-700">
-                  Someone will contact you soon. If you need immediate
-                  assistance, feel free to reach us directly on WhatsApp.
-                </p>
-                <div>
-                  <a
-                    href={`https://wa.me/${whatsappNumber}`} // Replace with your WhatsApp contact number
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-block bg-green-500 text-white py-2 px-6 hover:bg-green-600"
-                  >
-                    WhatsApp
-                  </a>
-                  <button
-                    onClick={closeModal}
-                    className="mt-4 bg-gray-300 text-gray-800 py-2 px-6 hover:bg-gray-400"
-                  >
-                    Close
-                  </button>
-                </div>
+          {/* Modal part */}
+          <div
+            className={`fixed inset-0 flex justify-center items-center transition-opacity duration-300 ${
+              isModalOpen
+                ? "bg-black bg-opacity-60 opacity-100 z-30"
+                : "opacity-0 -z-30"
+            }`}
+          >
+            <div
+              className={`bg-white rounded-lg p-8 shadow-2xl text-center max-w-md w-full transition-transform duration-300 transform ${
+                isModalOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
+              }`}
+            >
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                Thank you for reaching out!
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Someone will contact you soon. If you need immediate assistance,
+                feel free to reach us directly on WhatsApp.
+              </p>
+              <div className="flex space-x-4">
+                <button
+                  onClick={closeModal}
+                  className="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg transition hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300"
+                >
+                  Close
+                </button>
+                <a
+                  href={`https://api.whatsapp.com/send?phone=${whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-green-500 text-white py-2 px-4 rounded-lg transition hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-400"
+                >
+                  WhatsApp
+                </a>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
       <Footer />
