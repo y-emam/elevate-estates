@@ -1,4 +1,5 @@
 import "./style.scss";
+
 function Loader() {
   return (
     <div className="scene">
