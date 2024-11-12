@@ -1,4 +1,4 @@
-// import addToDB from "@/services/addToDB";
+import addToDB from "@/services/addToDB";
 import addToExcelSheet from "@/services/addToExcelSheet";
 import sendEmail from "@/services/sendEmail";
 import { NextRequest, NextResponse } from "next/server";
@@ -18,6 +18,22 @@ export async function POST(req: NextRequest) {
     // get request body data
     const lead: lead = await req.json();
 
+    const results = await Promise.all([
+      addToDB(lead),
+      sendEmail(lead),
+      addToExcelSheet(lead),
+    ]);
+
+    const [dbResult, emailResult, excelResult] = results;
+
+    // If any of the results are falsy, return failure status
+    if (!dbResult || !emailResult || !excelResult) {
+      return NextResponse.json(
+        { message: "Failed to process request" },
+        { status: 500 }
+      );
+    }
+
     // add data to DB
     // addToDB(lead).then((res) => {
     //   if (!res) {
@@ -31,28 +47,28 @@ export async function POST(req: NextRequest) {
     // });
 
     // Send email
-    sendEmail(lead).then((res) => {
-      if (!res) {
-        console.log("Failed to send Email.");
+    // sendEmail(lead).then((res) => {
+    //   if (!res) {
+    //     console.log("Failed to send Email.");
 
-        return NextResponse.json(
-          { message: `Failed to send email` },
-          { status: 500 }
-        );
-      }
-    });
+    //     return NextResponse.json(
+    //       { message: `Failed to send email` },
+    //       { status: 500 }
+    //     );
+    //   }
+    // });
 
     // add new record to Excel sheet
-    addToExcelSheet(lead).then((res) => {
-      if (!res) {
-        console.log("Failed to update Excel Sheet.");
+    // addToExcelSheet(lead).then((res) => {
+    //   if (!res) {
+    //     console.log("Failed to update Excel Sheet.");
 
-        return NextResponse.json(
-          { message: `Failed to update Excel Sheet.` },
-          { status: 500 }
-        );
-      }
-    });
+    //     return NextResponse.json(
+    //       { message: `Failed to update Excel Sheet.` },
+    //       { status: 500 }
+    //     );
+    //   }
+    // });
 
     // Return success response
     return NextResponse.json({
