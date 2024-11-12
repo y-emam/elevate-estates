@@ -16,6 +16,7 @@ export default async function addToDB(leadInp: leadInterface) {
   try {
     await connectToDB();
 
+    console.log("Adding lead to the database...");
     const lead = new Lead(leadInp);
 
     lead.save();
