@@ -21,9 +21,13 @@ export default async function addToDB(leadInp: leadInterface) {
     const lead = new Lead(leadInp);
 
     console.log("Saving lead");
-    lead.save();
+    const res = lead.save();
+
+    console.log(`Result of saving lead: ${res}`);
 
     console.log("Lead saved");
+    console.log(lead);
+
     if (lead) {
       return true;
     } else {
