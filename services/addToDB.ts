@@ -14,21 +14,13 @@ interface leadInterface {
 
 export default async function addToDB(leadInp: leadInterface) {
   try {
-    console.log("Adding to DB");
+    // connecting to Mongo DB
     await connectToDB();
 
-    console.log("Creating a lead");
     const lead = new Lead(leadInp);
-
-    console.log(lead);
-
-    console.log("Saving lead");
     const res = await lead.save();
 
-    console.log(`Result of saving lead: ${res}`);
-
-    console.log("Lead saved");
-
+    // check if it was saved successfully
     if (res) {
       return true;
     } else {

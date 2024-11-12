@@ -18,10 +18,10 @@ function Submitiotn() {
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility state
 
   const searchParams = useSearchParams();
-  const destination = searchParams.get("destination");
-  const propertyType = searchParams.get("propertyType");
-  const noBedrooms = searchParams.get("noBedrooms");
-  const delivery = searchParams.get("delivery");
+  const destination = searchParams.get("destination")?.trim();
+  const propertyType = searchParams.get("propertyType")?.trim();
+  const noBedrooms = searchParams.get("noBedrooms")?.trim();
+  const delivery = searchParams.get("delivery")?.trim();
 
   const [submitionData, setsubmitionData] = useState<submitionData>({
     firstname: "",
