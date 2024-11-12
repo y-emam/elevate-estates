@@ -91,11 +91,11 @@ function PropertyDetails() {
               </select>
             </div>
 
-            <a
-              className="animated-btn"
-              href={`/submition?destination=${destination}&propertyType=${propertyType}&noBedrooms=${propertyDetailsData.noBedrooms}&delivery=${propertyDetailsData.delivery}`}
-            >
-              <div className="center">
+            <div className="animated-btn">
+              <a
+                className="center"
+                href={`/submition?destination=${destination}&propertyType=${propertyType}&noBedrooms=${propertyDetailsData.noBedrooms}&delivery=${propertyDetailsData.delivery}`}
+              >
                 <button className="btn">
                   <svg
                     width="120px"
@@ -114,8 +114,8 @@ function PropertyDetails() {
                   </svg>
                   <span>Next</span>
                 </button>
-              </div>
-            </a>
+              </a>
+            </div>
           </form>
         </div>
       </div>

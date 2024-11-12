@@ -141,8 +141,8 @@ function Submitiotn() {
               />
             </div>
 
-            <a type="submit" className="animated-btn">
-              <div className="center">
+            <div className="animated-btn">
+              <a type="submit" className="center">
                 <button className="btn">
                   <svg
                     width="120px"
@@ -159,10 +159,10 @@ function Submitiotn() {
                       className="hl-line"
                     />
                   </svg>
-                  <span>Next</span>
+                  <span>Submit</span>
                 </button>
-              </div>
-            </a>
+              </a>
+            </div>
           </form>
 
           {/* Modal part */}
@@ -188,7 +188,11 @@ function Submitiotn() {
               <div className="flex space-x-4">
                 <button
                   onClick={closeModal}
-                  className="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg transition hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300"
+                  className={`${
+                    isModalOpen
+                      ? "block cursor-pointer"
+                      : "hidden cursor-default"
+                  } w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg transition hover:bg-gray-200 focus:outline-none focus:ring focus:ring-gray-300`}
                 >
                   Close
                 </button>
@@ -196,7 +200,11 @@ function Submitiotn() {
                   href={`https://api.whatsapp.com/send?phone=${whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-green-500 text-white py-2 px-4 rounded-lg transition hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-400"
+                  className={`${
+                    isModalOpen
+                      ? "block cursor-pointer"
+                      : "hidden cursor-default"
+                  } w-full bg-green-500 text-white py-2 px-4 rounded-lg transition hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-400`}
                 >
                   WhatsApp
                 </a>
