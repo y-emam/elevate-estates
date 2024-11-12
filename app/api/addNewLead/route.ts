@@ -1,4 +1,4 @@
-import addToDB from "@/services/addToDB";
+// import addToDB from "@/services/addToDB";
 import addToExcelSheet from "@/services/addToExcelSheet";
 import sendEmail from "@/services/sendEmail";
 import { NextRequest, NextResponse } from "next/server";
@@ -19,16 +19,16 @@ export async function POST(req: NextRequest) {
     const lead: lead = await req.json();
 
     // add data to DB
-    addToDB(lead).then((res) => {
-      if (!res) {
-        console.log("Failed to insert into Database.");
+    // addToDB(lead).then((res) => {
+    //   if (!res) {
+    //     console.log("Failed to insert into Database.");
 
-        return NextResponse.json(
-          { message: `Failed to insert into Database.` },
-          { status: 500 }
-        );
-      }
-    });
+    //     return NextResponse.json(
+    //       { message: `Failed to insert into Database.` },
+    //       { status: 500 }
+    //     );
+    //   }
+    // });
 
     // Send email
     sendEmail(lead).then((res) => {
