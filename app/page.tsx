@@ -73,8 +73,8 @@ export default function Home() {
             <h2 className="text-white text-xl sm:text-2xl pl-8 sm:pl-32 opacity-0 animate-fade-in -translate-y-10">
               {images[currentImageIndex].image_title}
             </h2>
-            <a className="animated-btn" href={"/destination"}>
-              <div className="center">
+            <div className="animated-btn">
+              <a className="center" href={"/destination"}>
                 <button className="btn">
                   <svg
                     width="180px"
@@ -93,8 +93,8 @@ export default function Home() {
                   </svg>
                   <span>START</span>
                 </button>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
         </div>
       </div>

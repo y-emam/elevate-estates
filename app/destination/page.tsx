@@ -11,10 +11,6 @@ const items = [
     title: "El Sheikh Zayed",
   },
   {
-    img_url: "/destination/5th-settlement.jpg",
-    title: "5th Settlement",
-  },
-  {
     img_url: "/destination/new-cairo.jpg",
     title: "New Cairo",
   },
@@ -23,8 +19,8 @@ const items = [
     title: "New Zayed",
   },
   {
-    img_url: "/destination/the-new-administrative-capital.jpg",
-    title: "The New Administrative Capital",
+    img_url: "/destination/the-new-capital.jpg",
+    title: "The New Capital",
   },
   {
     img_url: "/destination/sahel.jpg",
