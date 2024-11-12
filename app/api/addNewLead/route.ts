@@ -15,8 +15,6 @@ interface lead {
 }
 export async function POST(req: NextRequest) {
   try {
-    console.log(process.env);
-
     // get request body data
     const lead: lead = await req.json();
 
