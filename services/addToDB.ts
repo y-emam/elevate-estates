@@ -14,12 +14,16 @@ interface leadInterface {
 
 export default async function addToDB(leadInp: leadInterface) {
   try {
+    console.log("Adding to DB");
     await connectToDB();
 
+    console.log("Creating a lead");
     const lead = new Lead(leadInp);
 
+    console.log("Saving lead");
     lead.save();
 
+    console.log("Lead saved");
     if (lead) {
       return true;
     } else {
