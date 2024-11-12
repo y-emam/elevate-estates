@@ -60,7 +60,11 @@ export default async function sendEmail(leadInp: leadInterface) {
             First Name: ${leadInp.firstname}
             Last Name: ${leadInp.lastname}
             Email: ${leadInp.email}
-            Phone: ${leadInp.phone}`,
+            Phone: ${leadInp.phone}
+            Destination: ${leadInp.destination}
+            Property Type: ${leadInp.propertyType}
+            No Bedrooms: ${leadInp.noBedrooms}
+            Delivery: ${leadInp.delivery}`,
     });
 
     if (info.accepted.length > 0) {
